@@ -6,3 +6,7 @@ gem 'telegram-bot-ruby'
 gem 'pg'
 gem 'sequel'
 gem 'dotenv'
+
+group :test do
+  gem 'minitest'          
+end

@@ -3,8 +3,6 @@ require 'sequel'
 require 'dotenv'
 Dotenv.load
 
-require_relative 'shortener'
-
 TOKEN = ENV['TOKEN']
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
