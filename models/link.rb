@@ -4,7 +4,13 @@ class Link < Sequel::Model
   def validate
     super
     validates_presence [:original_url]
+    validates_unique [:original_url]
+    original_url_format
+  end
 
+  private
+
+  def original_url_format
     return if original_url.blank?
 
     begin
