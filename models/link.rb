@@ -11,7 +11,7 @@ class Link < Sequel::Model
   private
 
   def original_url_format
-    return if original_url.blank?
+    return if original_url.to_s.strip.empty?
 
     begin
       uri = URI.parse(original_url)
