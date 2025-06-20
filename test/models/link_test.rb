@@ -2,10 +2,6 @@ require_relative '../test_helper'
 require_relative '../../models/link'
 
 describe Link do
-  before do
-    DB.tables.each { |t| DB[t].truncate(cascade: true) }
-  end
-
   let(:valid_url)   { 'https://example.com/path?x=1' }
   let(:invalid_url) { 'not a url' }
   let(:blank_url)   { '' }
