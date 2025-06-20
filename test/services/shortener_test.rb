@@ -18,5 +18,27 @@ describe Shortener do
       ul = UserLink.first(user_id: @user.id, link_id: link.id)
       _(ul).wont_be_nil
     end
+
+    it 'idempotent for same user and url' do
+      first  = Shortener.new(@user, @url).find_or_create_for_user
+      second = Shortener.new(@user, @url).find_or_create_for_user
+
+      _(first.id).must_equal second.id
+      _(first.short_url).must_equal second.short_url
+
+      count = UserLink.where(user_id: @user.id, link_id: first.id).count
+      _(count).must_equal 1
+    end
+
+    it 'creates one short link when two users share same link' do
+      user2 = User.create(telegram_id: '456')
+
+      link1 = Shortener.new(@user, @url).find_or_create_for_user
+      link2 = Shortener.new(user2, @url).find_or_create_for_user
+
+      _(link1.id).must_equal link2.id
+      _(UserLink.where(user_id: @user.id, link_id: link1.id)).must_be :any?
+      _(UserLink.where(user_id: user2.id, link_id: link2.id)).must_be :any?
+    end
   end
 end
