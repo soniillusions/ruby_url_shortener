@@ -6,7 +6,7 @@ module Bot::Commands
       if links.empty?
         bot.api.send_message(
           chat_id: message.chat.id,
-          text: "Пока ничего нет. Сначала сократите ссылку.",,
+          text: "Пока ничего нет. Сначала сократите ссылку.",
           reply_markup: keyboard
         )
         return
@@ -23,7 +23,7 @@ module Bot::Commands
         )
       end
     end
-    
+
     private
 
     def delete_button_markup(link_id)
