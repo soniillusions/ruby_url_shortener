@@ -32,7 +32,7 @@ module Bot::Commands
           [
             Telegram::Bot::Types::InlineKeyboardButton.new(
               text: "🗑 Удалить",
-              callback_data: "delete_link:#{link_id}"
+              callback_data: "delete:#{link.id}"
             )
           ]
         ]
