@@ -8,7 +8,7 @@ module Bot::Commands
         user_link.destroy
 
         bot.api.edit_message_text(
-          chat_id: message.from.id,
+          chat_id: message.message.from.id,
           message_id: message.message.message_id,
           text: "🗑 Ссылка отвязана от вашего аккаунта"
         )
