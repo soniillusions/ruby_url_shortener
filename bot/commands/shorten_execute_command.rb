@@ -29,6 +29,10 @@ module Bot::Commands
             Telegram::Bot::Types::InlineKeyboardButton.new(
               text: '🔁 Новая ссылка',
               callback_data: 'start_over'
+            ),
+            Telegram::Bot::Types::InlineKeyboardButton.new(
+              text: '🏠 Главное меню',
+              callback_data: 'main_menu'
             )
           ]
         ]

@@ -39,7 +39,7 @@ module Bot
       def inline_keyboard
         Telegram::Bot::Types::InlineKeyboardMarkup.new(
           inline_keyboard: [
-            [Telegram::Bot::Types::InlineKeyboardButton.new(text: '🔁 Главное меню', callback_data: 'main_menu')]
+            [Telegram::Bot::Types::InlineKeyboardButton.new(text: '🏠 Главное меню', callback_data: 'main_menu')]
           ]
         )
       end
