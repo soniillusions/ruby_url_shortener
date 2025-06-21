@@ -21,11 +21,11 @@
 
 ## Future Improvements & Ideas
 
-- ☐ **Link Statistics:** Show how many times each shortened link was used.
-- ☐ **Export Links:** Allow exporting links to CSV or JSON.
-- ☐ **Custom Aliases:** Let users set custom short aliases for their URLs.
-- ☐ **Error Handling:** Improve user feedback for invalid URLs or other errors.
-- ☐ **More Commands:** Add `/help`, cancel commands, and additional UX commands.
+☐ **Link Statistics:** Show how many times each shortened link was used.  
+☐ **Export Links:** Allow exporting links to CSV or JSON.  
+☐ **Custom Aliases:** Let users set custom short aliases for their URLs.  
+☐ **Error Handling:** Improve user feedback for invalid URLs or other errors.  
+☐ **More Commands:** Add `/help`, cancel commands, and additional UX commands.
 
 ## Setup & Usage
 
