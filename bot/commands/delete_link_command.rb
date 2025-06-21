@@ -14,12 +14,6 @@ module Bot::Commands
           message_id: message.message.message_id,
           text: "Ссылка удалена ✅"
         )
-
-        bot.api.send_message(
-          chat_id: message.from.id,
-          text: "Выберите действие:",
-          reply_markup: keyboard
-        )
       else
         bot.api.answer_callback_query(
           callback_query_id: message.id,
