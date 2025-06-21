@@ -17,7 +17,6 @@ module Bot::Commands
 
         bot.api.send_message(
           chat_id: message.from.id,
-          text: "Вот главное меню 👇",
           reply_markup: keyboard
         )
       else
