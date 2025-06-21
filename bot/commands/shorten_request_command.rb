@@ -2,10 +2,18 @@ module Bot::Commands
   class ShortenRequestCommand < BaseCommand
     def call
       bot.api.send_message(
-        chat_id: message.chat.id,
+        chat_id: chat_id,
         text: 'Отправьте мне ссылку для сокращения.',
         reply_markup: Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
       )
+    end
+
+    def chat_id
+      if message.is_a?(Telegram::Bot::Types::CallbackQuery)
+        message.message.chat.id
+      else
+        message.chat.id
+      end
     end
   end
 end
