@@ -1,5 +1,5 @@
 module Bot::Commands
-  class DeleteLink < BaseCommand
+  class DeleteLinkCommand < BaseCommand
     def call
       link_id = message.data.match(/^delete:(\d+)$/)[1].to_i
       user_link = UserLink.find_by(user: user, link_id: link_id)
