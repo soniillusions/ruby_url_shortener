@@ -14,15 +14,12 @@ module Bot
       private
 
       def user
-        @user ||= User.find_or_create(telegram_id: message.from.id.to_s)
+        @user ||= User.where(telegram_id: message.from.id.to_s).first ||
+                  User.create(telegram_id: message.from.id.to_s)
       end
 
       def chat_id
         message.chat.id
-      end
-
-      def user
-        @user ||= User.find_or_create(telegram_id: message.from.id.to_s)
       end
 
       def keyboard
