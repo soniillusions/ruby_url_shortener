@@ -56,6 +56,7 @@ GEM
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
+    rake (13.3.0)
     ruby2_keywords (0.0.5)
     sequel (5.93.0)
       bigdecimal
@@ -84,6 +85,7 @@ DEPENDENCIES
   minitest
   pg
   puma
+  rake
   sequel
   sinatra
   telegram-bot-ruby

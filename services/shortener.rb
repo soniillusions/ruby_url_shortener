@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Shortener
   CODE_LENGTH = 7
 

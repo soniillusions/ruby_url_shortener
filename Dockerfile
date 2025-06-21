@@ -15,10 +15,11 @@ RUN apt-get update \
 COPY Gemfile Gemfile.lock ./
 
 # Install gems
-RUN gem install bundler -v "$(grep -E \"^    bundler \" Gemfile.lock | awk '{print $2}')" \
+RUN gem install bundler \
   && bundle config set deployment 'true' \
-  && bundle config set without 'development test' \
-  && bundle install --jobs 4 --retry 3
+  && bundle config set without 'development' \
+  bundle config unset frozen && \
+  bundle install --jobs 4 --retry 3
 
 # Copy application code
 COPY . .

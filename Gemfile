@@ -8,6 +8,7 @@ gem 'puma'
 gem 'sequel'
 gem 'sinatra'
 gem 'telegram-bot-ruby'
+gem 'rake'
 
 group :test do
   gem 'minitest'
