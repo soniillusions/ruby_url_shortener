@@ -13,6 +13,7 @@ module Bot::Commands
           text: "🗑 Ссылка отвязана от вашего аккаунта",
           reply_markup: inline_keyboard
         )
+        
         bot.api.answer_callback_query(callback_query_id: message.id)
 
         bot.api.send_message(
