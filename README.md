@@ -20,7 +20,7 @@
 - Sinatra (for URL redirector)  
 - Minitest for testing
 
-## Future Improvements & Ideas
+## To-Do
 
 ☐ **Link Statistics:** Show how many times each shortened link was used.  
 ☐ **Export Links:** Allow exporting links to CSV or JSON.  
