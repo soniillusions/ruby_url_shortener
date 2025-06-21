@@ -17,6 +17,7 @@ module Bot::Commands
     end
 
     private
+    
     def inline_keyboard_for_link(link)
       Telegram::Bot::Types::InlineKeyboardMarkup.new(
         inline_keyboard: [
