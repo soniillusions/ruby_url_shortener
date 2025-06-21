@@ -10,10 +10,10 @@ task default: :test
 namespace :db do
   MIGRATIONS_DIR = 'db/migrate'
 
-  desc "Generate a new Sequel migration: rake db:generate[name]"
+  desc 'Generate a new Sequel migration: rake db:generate[name]'
   task :generate, [:name] do |_, args|
-    name      = args[:name] or abort("Usage: rake db:generate[name]")
-    ts        = Time.now.utc.strftime("%Y%m%d%H%M%S")
+    name      = args[:name] or abort('Usage: rake db:generate[name]')
+    ts        = Time.now.utc.strftime('%Y%m%d%H%M%S')
     filename  = "#{MIGRATIONS_DIR}/#{ts}_#{name}.rb"
     template  = <<~RUBY
       Sequel.migration do

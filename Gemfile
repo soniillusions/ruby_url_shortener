@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'telegram-bot-ruby'
-gem 'pg'
-gem 'sequel'
 gem 'dotenv'
-gem 'sinatra'
+gem 'pg'
 gem 'puma'
+gem 'sequel'
+gem 'sinatra'
+gem 'telegram-bot-ruby'
 
 group :test do
-  gem 'minitest'          
+  gem 'minitest'
 end

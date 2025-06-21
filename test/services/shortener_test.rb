@@ -12,7 +12,7 @@ describe Shortener do
       link = Shortener.new(@user, @url).find_or_create_for_user
 
       _(link).must_be_instance_of Link
-      _(link.original_url).must_equal 'http://example.com/foo'
+      _(link.original_url).must_equal 'https://example.com/foo'
       _(link.short_url.size).must_equal Shortener::CODE_LENGTH
 
       ul = UserLink.first(user_id: @user.id, link_id: link.id)

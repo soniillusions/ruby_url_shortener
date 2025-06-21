@@ -5,7 +5,7 @@ Sequel.migration do
       foreign_key :link_id, :links, null: false, on_delete: :cascade
       DateTime :created_at, null: false, default: Sequel::CURRENT_TIMESTAMP
 
-      primary_key [:user_id, :link_id]
+      primary_key %i[user_id link_id]
     end
   end
 end

@@ -15,11 +15,9 @@ class Link < Sequel::Model
 
     begin
       uri = URI.parse(original_url)
-      if uri.host.nil?
-        errors.add(:original_url, "Invalid url format")
-      end
+      errors.add(:original_url, 'Invalid url format') if uri.host.nil?
     rescue URI::InvalidURIError
-      errors.add(:original_url, "Invalid url format")
+      errors.add(:original_url, 'Invalid url format')
     end
   end
 end

@@ -7,7 +7,7 @@ require 'erb'
 ENV['RACK_ENV'] ||= 'development'
 config_path = File.expand_path('config/database.yml', __dir__)
 raw_config = ERB.new(File.read(config_path)).result
-configs  = YAML.safe_load(raw_config, aliases: true)
+configs = YAML.safe_load(raw_config, aliases: true)
 db_conf = configs.fetch(ENV['RACK_ENV'])
 
 DB = Sequel.connect(db_conf)
@@ -25,10 +25,10 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
     keyboard = Telegram::Bot::Types::ReplyKeyboardMarkup.new(
       keyboard: [
-        [ Telegram::Bot::Types::KeyboardButton.new(text: 'Сократить ссылку') ],
-        [ Telegram::Bot::Types::KeyboardButton.new(text: 'Мои ссылки') ]
+        [Telegram::Bot::Types::KeyboardButton.new(text: 'Shorten link')],
+        [Telegram::Bot::Types::KeyboardButton.new(text: 'My links')]
       ],
-      resize_keyboard: true, 
+      resize_keyboard: true,
       one_time_keyboard: true
     )
 
@@ -36,19 +36,19 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     when '/start', '/start start'
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Выберите действие:",
+        text: 'Выберите действие:',
         reply_markup: keyboard
       )
-    when 'Сократить ссылку'
+    when 'Shorten link'
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Отправьте мне ссылку для сокращения.",
+        text: 'Отправьте мне ссылку для сокращения.',
         reply_markup: Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
       )
-    when 'Мои ссылки'
+    when 'My links'
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Ваши ссылки:",
+        text: 'Ваши ссылки:',
         reply_markup: Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
       )
 
@@ -58,7 +58,7 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
       if links.empty?
         bot.api.send_message(
           chat_id: message.chat.id,
-          text: "Пока ничего нет. Сначала сократите ссылку.",
+          text: 'Пока ничего нет. Сначала сократите ссылку.',
           reply_markup: keyboard
         )
       else
@@ -72,9 +72,8 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
           reply_markup: keyboard
         )
       end
-    when %r{\A(?:https?://)?\S+\.\S+\z}i
-      original_url = message.text
-      original_url = "http://#{original_url}" unless original_url =~ %r{\Ahttps?://}i
+    when /\A(\S+\.\S+)\z/i
+      original_url = Regexp.last_match(1)
 
       user = User.find_or_create(telegram_id: message.from.id.to_s)
 
@@ -86,8 +85,10 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
           reply_markup: keyboard
         )
       rescue ArgumentError => e
-        bot.api.send_message(chat_id: message.chat.id, text: "Error: #{e.message}", reply_markup: markup)
+        bot.api.send_message(chat_id: message.chat.id, text: "Error: #{e.message}", reply_markup: keyboard)
       end
+    else
+      bot.api.send_message(chat_id: message.chat.id, text: '⚠️ Invalid link. Please try again.')
     end
   end
 end

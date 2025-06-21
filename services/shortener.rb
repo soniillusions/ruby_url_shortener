@@ -34,6 +34,7 @@ class Shortener
   def normalize_url(str)
     uri = URI.parse(str.strip)
     uri = URI.parse("http://#{str.strip}") unless uri.scheme
+    uri.scheme = 'https'
     uri.path = uri.path.chomp('/')
     uri.to_s
   rescue URI::InvalidURIError
