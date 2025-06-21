@@ -8,14 +8,16 @@ module Bot::Commands
         user_link.destroy
 
         bot.api.edit_message_text(
-          chat_id: message.message.from.id,
+          chat_id: message.message.chat.id,
           message_id: message.message.message_id,
-          text: "🗑 Ссылка отвязана от вашего аккаунта"
+          text: "🗑 Ссылка отвязана от вашего аккаунта",
+          reply_markup: keyboard
         )
       else
         bot.api.answer_callback_query(
           callback_query_id: message.id,
-          text: "Ссылка не найдена или уже удалена"
+          text: "Ссылка не найдена или уже удалена",
+          reply_markup: keyboard
         )
       end
     end
