@@ -17,7 +17,6 @@ DB = Sequel.connect(db_conf)
 Sequel.extension :migration
 Sequel::Migrator.run(DB, File.expand_path('../db/migrate', __dir__))
 
-# require_relative '../main'
 Dir[File.expand_path('../models/*.rb', __dir__)].each { |f| require f }
 
 class Minitest::Test
