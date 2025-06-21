@@ -17,6 +17,7 @@
 - Ruby + Sequel ORM
 - PostgreSQL (via Docker)
 - Telegram Bot API with `telegram-bot-ruby` gem
+- Sinatra (for URL redirector)  
 - Minitest for testing
 
 ## Future Improvements & Ideas
