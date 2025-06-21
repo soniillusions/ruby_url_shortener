@@ -1,6 +1,8 @@
 module Bot::Commands
   class ShortenRequestCommand < BaseCommand
     def call
+      bot.api.answer_callback_query(callback_query_id: message.id)
+      
       bot.api.send_message(
         chat_id: chat_id,
         text: 'Отправьте мне ссылку для сокращения.',
