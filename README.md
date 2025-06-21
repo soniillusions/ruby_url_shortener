@@ -23,10 +23,12 @@
 ## To-Do
 
 ☐ **Link Statistics:** Show how many times each shortened link was used.  
+☐ **Link Expiration & Limits:** Implement expiration dates and usage limits for shortened links.  
 ☐ **Export Links:** Allow exporting links to CSV or JSON.  
 ☐ **Custom Aliases:** Let users set custom short aliases for their URLs.  
 ☐ **Error Handling:** Improve user feedback for invalid URLs or other errors.  
-☐ **More Commands:** Add `/help`, cancel commands, and additional UX commands.
+☐ **More Commands:** Add `/help`, cancel commands, and additional UX commands.  
+☐ **Rate Limiting / Spam Protection:**  Prevent overload and spam.
 
 ## Setup & Usage
 
