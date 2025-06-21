@@ -40,7 +40,11 @@ module Bot
       when 'start_over'
         Commands::ShortenRequestCommand.new(bot, message).call
       when 'main_menu'
-        Commands::MainMenuCommand.new(bot, message).call
+        bot.api.send_message(
+          chat_id: callback_query.message.chat.id,
+          text: "Главное меню:",
+          reply_markup: default_keyboard
+        )
       else
         bot.api.answer_callback_query(callback_query_id: message.id, text: "Неизвестное действие")
       end
