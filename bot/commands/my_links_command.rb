@@ -22,6 +22,19 @@ module Bot::Commands
           disable_web_page_preview: true
         )
       end
+
+      bot.api.send_message(
+        chat_id: chat_id,
+        text: "Выберите дальнейшее действие:",
+        reply_markup: Telegram::Bot::Types::InlineKeyboardMarkup.new(
+          inline_keyboard: [
+            [
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: "➕ Новая ссылка", callback_data: "new_link"),
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: "🏠 Главное меню", callback_data: "main_menu")
+            ]
+          ]
+        )
+      )
     end
 
     private
