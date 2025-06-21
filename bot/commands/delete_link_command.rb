@@ -16,7 +16,7 @@ module Bot::Commands
         bot.api.answer_callback_query(callback_query_id: message.id)
 
         bot.api.send_message(
-          chat_id: message.message.from.id,
+          chat_id: message.from.id,
           text: "Вот главное меню 👇",
           reply_markup: keyboard
         )
