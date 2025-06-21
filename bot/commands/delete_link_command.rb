@@ -18,7 +18,7 @@ module Bot::Commands
 
         bot.api.send_message(
           chat_id: message.from.id,
-          text: "Выберите действие:"
+          text: "Выберите действие:",
           reply_markup: keyboard
         )
       else
