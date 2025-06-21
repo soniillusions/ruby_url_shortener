@@ -32,6 +32,8 @@ module Bot
         Commands::DeleteLinkCommand.new(bot, message).call
       when 'start_over'
         Commands::ShortenRequestCommand.new(bot, message).call
+      when 'main_menu'
+        Commands::MainMenuCommand.new(bot, message).call
       else
         bot.api.answer_callback_query(callback_query_id: message.id, text: "Неизвестное действие")
       end
