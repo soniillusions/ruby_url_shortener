@@ -13,11 +13,11 @@ module Bot::Commands
           text: "🗑 Ссылка отвязана от вашего аккаунта",
           reply_markup: keyboard
         )
+        bot.api.answer_callback_query(callback_query_id: message.id)
       else
         bot.api.answer_callback_query(
           callback_query_id: message.id,
-          text: "Ссылка не найдена или уже удалена",
-          reply_markup: keyboard
+          text: "Ссылка не найдена или уже удалена"
         )
       end
     end
