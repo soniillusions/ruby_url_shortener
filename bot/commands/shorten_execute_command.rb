@@ -8,11 +8,11 @@ module Bot::Commands
 
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Your short URL: #{BASE_URL}/#{link.short_url}",
-        reply_markup: keyboard
+        text: "Ваша короткая ссылка:\n🔗 #{BASE_URL}/#{link.short_url}",
+        reply_markup: keyboard(link)
       )
     rescue ArgumentError => e
-      bot.api.send_message(chat_id: message.chat.id, text: "Error: #{e.message}", reply_markup: keyboard)
+      bot.api.send_message(chat_id: message.chat.id, text: "Error: #{e.message}", reply_markup: default_keyboard)
     end
 
     private
