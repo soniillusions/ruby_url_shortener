@@ -41,7 +41,7 @@ module Bot
         Commands::ShortenRequestCommand.new(bot, message).call
       when 'main_menu'
         bot.api.send_message(
-          chat_id: callback_query.message.chat.id,
+          chat_id: message.message.chat.id,
           text: "Главное меню:",
           reply_markup: default_keyboard
         )
