@@ -4,4 +4,4 @@ workers 2
 
 threads 1, 4
 
-environment ENV.fetch('RACK_ENV', 'development')
+environment ENV.fetch('RACK_ENV', 'production')

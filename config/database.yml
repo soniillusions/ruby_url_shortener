@@ -17,3 +17,4 @@ production:
   host:     localhost
   database: ruby_url_shortener_production
   user:     <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
