@@ -22,7 +22,7 @@ Dir[File.expand_path('bot/commands/**/*.rb', __dir__)].each { |f| require f }
 require_relative 'bot/command_router'
 
 TOKEN = ENV.fetch('TOKEN')
-BASE_URL = ENV.fetch('BASE_URL', 'http://127.0.0.1:4567')
+BASE_URL = ENV.fetch('BASE_URL')
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|

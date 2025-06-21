@@ -1,3 +1,4 @@
+version: '3.3'
 services:
   db:
     image: postgres:14
@@ -23,11 +24,10 @@ services:
     restart: always
     env_file:
       - .env
-    ports:
-      - "9292:9292"
     depends_on:
-      db:
-        condition: service_healthy
+      - db
+    expose:
+      - "4567"
 
   bot:
     build:
@@ -39,8 +39,16 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
-        condition: service_healthy
+      - db
+
+  nginx:
+    image: nginx:1.18
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
 
 volumes:
   db_data:
