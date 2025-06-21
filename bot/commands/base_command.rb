@@ -35,6 +35,14 @@ module Bot
           one_time_keyboard: false
         )
       end
+
+      def inline_keyboard
+        Telegram::Bot::Types::InlineKeyboardMarkup.new(
+          inline_keyboard: [
+            [Telegram::Bot::Types::InlineKeyboardButton.new(text: '🔙 Главное меню', callback_data: 'start_over')]
+          ]
+        )
+      end
     end
   end
 end

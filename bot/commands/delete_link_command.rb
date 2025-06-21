@@ -11,9 +11,15 @@ module Bot::Commands
           chat_id: message.message.chat.id,
           message_id: message.message.message_id,
           text: "🗑 Ссылка отвязана от вашего аккаунта",
-          reply_markup: keyboard
+          reply_markup: inline_keyboard
         )
         bot.api.answer_callback_query(callback_query_id: message.id)
+
+        bot.api.send_message(
+          chat_id: message.message.from.id,
+          text: "Вот главное меню 👇",
+          reply_markup: keyboard
+        )
       else
         bot.api.answer_callback_query(
           callback_query_id: message.id,
