@@ -12,7 +12,7 @@ module Bot::Commands
         bot.api.edit_message_text(
           chat_id: message.message.chat.id,
           message_id: message.message.message_id,
-          text: "🗑 Ссылка отвязана от вашего аккаунта"
+          text: "Ссылка удалена ✅"
         )
 
         bot.api.send_message(
