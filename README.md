@@ -4,13 +4,13 @@
 
 ## Features
 
-- Shorten any valid URL.
-- View a list of your shortened links.
-- Delete shortened links from your list.
-- Interactive menus with inline buttons for navigation and creating new links.
-- Handles different message types and callback queries.
-- Commands supported: `/start`, "Shorten URL", "My Links", etc.
-- Stores user and link data in a PostgreSQL database using Sequel ORM.
+- Shorten any valid URL right in Telegram.
+- View and manage your shortened links via interactive menu buttons like **"My Links"** and **"Shorten URL"**.
+- Delete any of your previously shortened links.
+- Navigate through intuitive inline buttons.
+- Handles both messages and callback queries smoothly.
+- Commands supported: `/start`
+- Uses a PostgreSQL database with Sequel ORM to persist user and link data.
 
 ## Technologies Used
 
