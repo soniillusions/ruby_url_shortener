@@ -14,6 +14,7 @@ module Bot::Commands
       )
       bot.api.send_message(
         chat_id: message.chat.id,
+        text: "Выберите действие:",
         reply_markup: keyboard
       )
     rescue ArgumentError => e
