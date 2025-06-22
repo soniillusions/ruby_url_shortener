@@ -44,23 +44,5 @@
     docker-compose up -d
    ```
 5. (Optional) Configure Nginx as a reverse proxy if needed, and start/reload Nginx.
-   ```
-   server {
-        listen 80;
-        server_name your.domain.com;
-    
-        location / {
-            proxy_pass http://localhost:3000; # или порт вашего приложения
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-        }
-    }
-   ```
-6. Reload Nginx to apply changes:
-   ```
-   sudo nginx -s reload
-   ```
 7. The bot will run inside the Docker container and connect to the configured database.
 8. Interact with your Telegram bot by sending messages and commands in Telegram.
