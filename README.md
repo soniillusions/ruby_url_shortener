@@ -5,7 +5,7 @@
 ## Features
 
 - Shorten any valid URL.
-- View a list of your shortened links (`/my_links` command).
+- View a list of your shortened links.
 - Delete shortened links from your list.
 - Interactive menus with inline buttons for navigation and creating new links.
 - Handles different message types and callback queries.
