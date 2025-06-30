@@ -8,7 +8,7 @@ module Bot::Commands
 
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Ваша короткая ссылка:\n🔗 #{BASE_URL}/#{link.short_url}",
+        text: "Ваша короткая ссылка:\n🔗 #{BASE_URL}#{link.short_url}",
         disable_web_page_preview: true,
         reply_markup: inline_keyboard_for_link(link)
       )

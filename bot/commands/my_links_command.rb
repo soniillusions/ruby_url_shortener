@@ -13,7 +13,7 @@ module Bot::Commands
       end
 
       links.each_with_index do |link, index|
-        text = "#{index + 1}. #{BASE_URL}/#{link.short_url} → #{link.original_url}"
+        text = "#{index + 1}. #{BASE_URL}#{link.short_url} → #{link.original_url}"
 
         bot.api.send_message(
           chat_id: chat_id,
