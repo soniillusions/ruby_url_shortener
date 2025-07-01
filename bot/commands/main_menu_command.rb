@@ -5,7 +5,7 @@ module Bot::Commands
       
       bot.api.send_message(
         chat_id: message.message.chat.id,
-        text: 'Главное меню:',
+        text: 'Main menu:',
         reply_markup: keyboard
       )
     end

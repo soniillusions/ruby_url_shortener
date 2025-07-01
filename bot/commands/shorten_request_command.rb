@@ -7,7 +7,7 @@ module Bot::Commands
 
       bot.api.send_message(
         chat_id: chat_id,
-        text: 'Отправьте мне ссылку для сокращения.',
+        text: 'Send me a link to shorten.',
         reply_markup: Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
       )
     end

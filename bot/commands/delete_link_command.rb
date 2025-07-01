@@ -12,12 +12,12 @@ module Bot::Commands
         bot.api.edit_message_text(
           chat_id: message.message.chat.id,
           message_id: message.message.message_id,
-          text: "Ссылка удалена ✅"
+          text: "Link deleted ✅"
         )
       else
         bot.api.answer_callback_query(
           callback_query_id: message.id,
-          text: "Ссылка не найдена или уже удалена"
+          text: "Link not found or already deleted"
         )
       end
     end

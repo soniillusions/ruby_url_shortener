@@ -25,8 +25,8 @@ module Bot
       def keyboard
         @keyboard ||= Telegram::Bot::Types::ReplyKeyboardMarkup.new(
           keyboard: [
-            [ Telegram::Bot::Types::KeyboardButton.new(text: 'Сократить ссылку') ],
-            [ Telegram::Bot::Types::KeyboardButton.new(text: 'Мои ссылки')      ]
+            [ Telegram::Bot::Types::KeyboardButton.new(text: 'Shorten a link') ],
+            [ Telegram::Bot::Types::KeyboardButton.new(text: 'My links')      ]
           ],
           resize_keyboard: true,
           one_time_keyboard: false
@@ -36,7 +36,7 @@ module Bot
       def inline_keyboard
         Telegram::Bot::Types::InlineKeyboardMarkup.new(
           inline_keyboard: [
-            [Telegram::Bot::Types::InlineKeyboardButton.new(text: '🏠 Главное меню', callback_data: 'main_menu')]
+            [Telegram::Bot::Types::InlineKeyboardButton.new(text: '🏠 Main menu', callback_data: 'main_menu')]
           ]
         )
       end

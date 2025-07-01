@@ -6,7 +6,7 @@ module Bot::Commands
       if links.empty?
         bot.api.send_message(
           chat_id: message.chat.id,
-          text: "Пока ничего нет. Сначала сократите ссылку.",
+          text: "Nothing here yet. Please shorten a link first.",
           reply_markup: keyboard
         )
         return
@@ -25,12 +25,12 @@ module Bot::Commands
 
       bot.api.send_message(
         chat_id: chat_id,
-        text: "Выберите дальнейшее действие:",
+        text: "Choose your next action",
         reply_markup: Telegram::Bot::Types::InlineKeyboardMarkup.new(
           inline_keyboard: [
             [
-              Telegram::Bot::Types::InlineKeyboardButton.new(text: "➕ Новая ссылка", callback_data: "start_over"),
-              Telegram::Bot::Types::InlineKeyboardButton.new(text: "🏠 Главное меню", callback_data: "main_menu")
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: "➕ New link", callback_data: "start_over"),
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: "🏠 Main menu", callback_data: "main_menu")
             ]
           ]
         )
@@ -44,7 +44,7 @@ module Bot::Commands
         inline_keyboard: [
           [
             Telegram::Bot::Types::InlineKeyboardButton.new(
-              text: "🗑 Удалить",
+              text: "🗑 Delete",
               callback_data: "delete:#{link_id}"
             )
           ]

@@ -8,13 +8,13 @@ module Bot::Commands
 
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Ваша короткая ссылка:\n🔗 #{BASE_URL}#{link.short_url}",
+        text: "Your short link:\n🔗 #{BASE_URL}#{link.short_url}",
         disable_web_page_preview: true,
         reply_markup: inline_keyboard_for_link(link)
       )
       bot.api.send_message(
         chat_id: message.chat.id,
-        text: "Выберите действие:",
+        text: "Choose an action:",
         reply_markup: keyboard
       )
     rescue ArgumentError => e
@@ -28,7 +28,7 @@ module Bot::Commands
         inline_keyboard: [
           [
             Telegram::Bot::Types::InlineKeyboardButton.new(
-              text: '🗑 Удалить',
+              text: '🗑 Delete',
               callback_data: "delete:#{link.id}"
             )
           ]
